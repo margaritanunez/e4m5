@@ -3,10 +3,13 @@ package com.example.e3m5;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.e3m5.databinding.FragmentFirstBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +17,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FirstFragment extends Fragment {
+    private FragmentFirstBinding binding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +29,7 @@ public class FirstFragment extends Fragment {
     private String mParam2;
 
     public FirstFragment() {
+
         // Required empty public constructor
     }
 
@@ -59,6 +64,15 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        binding = FragmentFirstBinding.inflate(getLayoutInflater(), container, false);
+        binding.iniciarButton.setOnClickListener(view -> {
+            String name = binding.nombreEditText.getText().toString();
+            Bundle bundle = new Bundle();
+            bundle.putString("Nombre", name);
+            Navigation.findNavController(getView()).navigate(R.id.action_firstFragment_to_secondFragment4, bundle);
+
+        });
+
+        return binding.getRoot();
     }
 }

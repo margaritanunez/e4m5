@@ -5,26 +5,33 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4942E4"
     tools:context=".ThirdFragment">
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="389dp"
+        android:layout_height="110dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:gravity="center"
         android:text="TextView"
+        android:textColor="#C8D147"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/intentarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:backgroundTint="#DD58D6"
+        android:text="Inténtalo otra vez"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
