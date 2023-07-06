@@ -9,7 +9,7 @@
     tools:context=".ThirdFragment">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/resultadoTxt"
         android:layout_width="389dp"
         android:layout_height="110dp"
         android:layout_marginStart="10dp"
@@ -35,5 +35,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/resultadoTxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>

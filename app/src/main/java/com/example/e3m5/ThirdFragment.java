@@ -3,6 +3,7 @@ package com.example.e3m5;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,8 +54,8 @@ public class ThirdFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getString("Respuesta");
+            mParam2 = getArguments().getString("Nombre");
         }
     }
 
@@ -62,6 +63,14 @@ public class ThirdFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third, container, false);
+        binding = FragmentThirdBinding.inflate(getLayoutInflater(), container, false);
+        binding.resultadoTxt.setText(mParam1);
+
+        binding.intentarButton.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("Nombre", mParam2);
+            Navigation.findNavController(getView()).navigate(R.id.action_thirdFragment_to_secondFragment, bundle);
+        });
+        return binding.getRoot();
     }
 }

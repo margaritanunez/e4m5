@@ -3,6 +3,7 @@ package com.example.e3m5;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.example.e3m5.databinding.FragmentSecondBinding;
  */
 public class SecondFragment extends Fragment {
     private FragmentSecondBinding binding;
+    private int radioButtonCorrecto;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,9 +71,15 @@ public class SecondFragment extends Fragment {
 
         binding.enviarButton.setOnClickListener(v -> {
             if (binding.radioGroup.getCheckedRadioButtonId() == binding.radioButtonB.getId()) {
-                Toast.makeText(getContext(), "perfecttirijillo",Toast.LENGTH_SHORT).show();
+                Bundle correctBundle = new Bundle();
+                correctBundle.putString("Respuesta", "Perfectirijillo");
+                correctBundle.putString("Nombre", mParam1);
+                Navigation.findNavController(getView()).navigate(R.id.action_secondFragment_to_thirdFragment, correctBundle);
             }else {
-                Toast.makeText(getContext(), "keeeso!!!", Toast.LENGTH_LONG).show();
+                Bundle wrongBundle = new Bundle();
+                wrongBundle.putString("Respuesta", "Keeesoooo!!!");
+                wrongBundle.putString("Nombre", mParam1);
+                Navigation.findNavController(getView()).navigate(R.id.action_secondFragment_to_thirdFragment, wrongBundle);
             }
         });
         return binding.getRoot();
