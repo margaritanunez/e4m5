@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.e3m5.databinding.FragmentSecondBinding;
 
@@ -65,6 +66,14 @@ public class SecondFragment extends Fragment {
         binding.holaTxt.setText("Hola, " +mParam1);
 
         // Inflate the layout for this fragment
+
+        binding.enviarButton.setOnClickListener(v -> {
+            if (binding.radioGroup.getCheckedRadioButtonId() == binding.radioButtonB.getId()) {
+                Toast.makeText(getContext(), "perfecttirijillo",Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(getContext(), "keeeso!!!", Toast.LENGTH_LONG).show();
+            }
+        });
         return binding.getRoot();
     }
 }
